@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS `traffic_announce` 
+(
+	`id` INT( 20 ) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+	`url` VARCHAR( 255 ) NOT NULL ,
+	`torrent` INT( 10 ) UNSIGNED NOT NULL ,
+	`seeders` INT( 10 ) UNSIGNED NOT NULL DEFAULT '0',
+	`leechers` INT( 10 ) UNSIGNED NOT NULL DEFAULT '0',
+	`times_completed` INT( 10 ) UNSIGNED NOT NULL DEFAULT '0',
+	`online` ENUM( 'yes', 'no' ) NOT NULL DEFAULT 'yes',
+	INDEX ( `torrent` )
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;

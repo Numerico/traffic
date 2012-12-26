@@ -38,4 +38,21 @@ $wgAutoloadClasses['SpecialTorrentUpload'] = $wgMyExtensionIncludes . '/SpecialT
 $wgExtensionMessagesFiles['TrafficAlias'] = $wgMyExtensionIncludes . '/SpecialTorrentUpload.alias.php'; //page name internationalization
 $wgSpecialPages['SpecialTorrentUpload'] = 'SpecialTorrentUpload'; //Tell MediaWiki about the new special page and its class name
 $wgSpecialPageGroups['SpecialTorrentUpload'] = 'media'; //List under media category
+
+/**
+ * Database update
+ */
+
+$wgHooks['LoadExtensionSchemaUpdates'][] = 'fnTraffic';
+function fnTraffic(DatabaseUpdater $updater){
+	$wgMyExtensionDB = dirname(__FILE__) . '/sql'; //TODO pass it as param, or else it's empty
+	$updater->addExtensionUpdate(array('addTable','traffic_announce', $wgMyExtensionDB . '/announce.sql',true));
+	$updater->addExtensionUpdate(array('addTable','traffic_completed', $wgMyExtensionDB . '/completed.sql',true));
+	$updater->addExtensionUpdate(array('addTable','traffic_peers', $wgMyExtensionDB . '/peers.sql',true));
+	$updater->addExtensionUpdate(array('addTable','traffic_torrents', $wgMyExtensionDB . '/torrents.sql',true));
+	$updater->addExtensionUpdate(array('addTable','traffic_torrent_languages', $wgMyExtensionDB . '/languages.sql',true));
+	return true;
+	//TODO <= 1.16 http://www.mediawiki.org/wiki/Manual:Hooks/LoadExtensionSchemaUpdates
+}
+ 
 ?>
