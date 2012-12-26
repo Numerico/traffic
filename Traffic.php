@@ -14,7 +14,6 @@ if(!defined('MEDIAWIKI')){
 /**
  * Adds info to the Special:Version page
  * http://www.mediawiki.org/wiki/Manual:$wgExtensionCredits
- * TODO Probably will have to add many of this later on...
  */
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
@@ -42,10 +41,9 @@ $wgSpecialPageGroups['SpecialTorrentUpload'] = 'media'; //List under media categ
 /**
  * Database update
  */
-
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'fnTraffic';
 function fnTraffic(DatabaseUpdater $updater){
-	$wgMyExtensionDB = dirname(__FILE__) . '/sql'; //TODO pass it as param, or else it's empty
+	$wgMyExtensionDB = dirname(__FILE__) . '/sql';
 	$updater->addExtensionUpdate(array('addTable','traffic_announce', $wgMyExtensionDB . '/announce.sql',true));
 	$updater->addExtensionUpdate(array('addTable','traffic_completed', $wgMyExtensionDB . '/completed.sql',true));
 	$updater->addExtensionUpdate(array('addTable','traffic_peers', $wgMyExtensionDB . '/peers.sql',true));

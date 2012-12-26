@@ -8,20 +8,25 @@ class SpecialTorrentUpload extends SpecialPage {
 	}	
 	
 	/**
-	 * Main function
-	 * $par is the subpage
+	 * Main function ($par is the subpage)
 	 * http://www.mediawiki.org/wiki/Manual:Special_pages
+	 * Draws Torrent Upload Form
 	 */
 	function execute($par){
-		$request = $this->getRequest();
+		$this->setHeaders();
         $output = $this->getOutput();
-        $this->setHeaders();
-        # Get request data from, e.g.
-        $param = $request->getText( 'param' );
-        # Do stuff
-        # ...
-        $wikitext = 'Hello world!';
-        $output->addWikiText( $wikitext );
+
+        $html = '<form action="algo.php" enctype="multipart/form-data" method="post" name="torrent_upload">';
+		$html .= Xml::buildForm(
+			array(
+				'torrent'=>Xml::input("torrent", false, false, array("type"=>"file")),
+				'torrentname'=>Xml::input("name")
+			),
+			'upload'
+		);
+		$html .= '</form>';
+		
+        $output->addHTML($html);
 	}
 }
 ?>
