@@ -15,6 +15,7 @@ $messages['es'] = array(//TODO codigo español
         //upload form
         'torrent' => "Archivo .torrent",
         'torrentname' => "Nombre del torrent",
+        'torrentdesc' => "Comentario",
         'torrentupload' => "Difundir",
 );
 
@@ -27,6 +28,7 @@ $messages[ 'en' ] = array(
         //upload form
         'torrent' => "Torrent file",
         'torrentname' => "Torrent's name",
+        'torrentdesc' => "Comment",
         'torrentupload' => "Upload",
 );
 
