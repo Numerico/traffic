@@ -13,7 +13,15 @@ class SpecialTorrentUpload extends SpecialPage {
 	 * http://www.mediawiki.org/wiki/Manual:Special_pages
 	 */
 	function execute($par){
-		//TODO
+		$request = $this->getRequest();
+        $output = $this->getOutput();
+        $this->setHeaders();
+        # Get request data from, e.g.
+        $param = $request->getText( 'param' );
+        # Do stuff
+        # ...
+        $wikitext = 'Hello world!';
+        $output->addWikiText( $wikitext );
 	}
 }
 ?>

@@ -12,13 +12,13 @@ $specialPageAliases = array();
  * @author numerico
  */
 $specialPageAliases['es'] = array(
-        'TorrentUpload' => array( 'SubirTorrent', 'Subit Torrent' ),
+        'SpecialTorrentUpload' => array('SubirTorrent', 'Subir Torrent'),
 );
 
 /** English
  * @author numerico
  */
 $specialPageAliases[ 'en' ] = array(
-        'TorrentUpload' => array( 'TorrentUpload', 'Torrent Upload' ),
+        'SpecialTorrentUpload' => array('SpecialTorrentUpload', 'TorrentUpload', 'Torrent Upload'),
 );
 ?>

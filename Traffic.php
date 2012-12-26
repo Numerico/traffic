@@ -36,6 +36,6 @@ $wgMyExtensionIncludes = dirname(__FILE__) . '/includes';
 //Torrent Upload
 $wgAutoloadClasses['SpecialTorrentUpload'] = $wgMyExtensionIncludes . '/SpecialTorrentUpload.php'; //auto-load class
 $wgExtensionMessagesFiles['TrafficAlias'] = $wgMyExtensionIncludes . '/SpecialTorrentUpload.alias.php'; //page name internationalization
-$wgSpecialPages['TorrentUpload'] = 'SpecialTorrentUpload'; //Tell MediaWiki about the new special page and its class name
-$wgSpecialPageGroups['TorrentUpload'] = 'media'; //List under media category
+$wgSpecialPages['SpecialTorrentUpload'] = 'SpecialTorrentUpload'; //Tell MediaWiki about the new special page and its class name
+$wgSpecialPageGroups['SpecialTorrentUpload'] = 'media'; //List under media category
 ?>
