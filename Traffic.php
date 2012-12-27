@@ -39,7 +39,8 @@ $wgSpecialPages['SpecialTorrentUpload'] = 'SpecialTorrentUpload'; //Tell MediaWi
 $wgSpecialPageGroups['SpecialTorrentUpload'] = 'media'; //List under media category
 //& hooks
 $wgAutoloadClasses['TorrentUploadHooks'] = $wgMyExtensionIncludes . '/TorrentUploadHooks.php'; //auto-load hooks class
-$wgHooks['UploadVerifyFile'][] = 'TorrentUploadHooks::onUploadVerifyFile';
+//$wgHooks['UploadVerifyFile'][] = 'TorrentUploadHooks::onUploadVerifyFile';
+$wgHooks['UploadComplete'][] = 'TorrentUploadHooks::onUploadComplete';
 
 /**
  * Database update

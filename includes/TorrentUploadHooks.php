@@ -13,19 +13,35 @@ class TorrentUploadHooks{
 			if($upload->getTitle()==null){
 				//just take file's name
 				$localFile = $upload->getLocalFile();
-
-				if($localFile==NULL) return "null";
-				else return "...";
+				//TODO $localFile is null, after all, this should be done before upload
 			}
 		}
 		return true;
 	}
 	
 	/**
-	 * Save uploaded torrent to database.
+	 * Save uploaded torrent to database for tracking.
 	 */
-	function torrentSave(){
-		
+	public static function onUploadComplete(&$image){
+				
+		if(MimeMagic::singleton()->isMatchingExtension('torrent', $image->getLocalFile()->mime)) {
+
+			require_once dirname(__FILE__) . '/parse.php';
+			//parse torrent
+			$torrentInfo = array();
+			$torrentInfo = ParseTorrent($image->getLocalFile()->getLocalRefPath());//TODO what'd happen if clustered, etc? does mwstore:// help here?
+			$announce = $torrentInfo[0];
+			$infohash = $torrentInfo[1];
+			$creationdate = $torrentInfo[2];
+			$internalname = $torrentInfo[3];
+			$torrentsize = $torrentInfo[4];
+			$filecount = $torrentInfo[5];
+			$annlist = $torrentInfo[6];
+			$comment = $torrentInfo[7];
+			$filelist = $torrentInfo[8];
+			
+		}
+		return true;
 	}
 }
 ?>
