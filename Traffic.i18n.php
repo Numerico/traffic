@@ -17,6 +17,7 @@ $messages['es'] = array(//TODO codigo español
         'torrentname' => "Nombre del torrent",
         'torrentdesc' => "Comentario",
         'torrentupload' => "Difundir",
+        'invalidtorrentext' => '¡El archivo no es un .torrent!',
 );
 
 /** English
@@ -30,6 +31,7 @@ $messages[ 'en' ] = array(
         'torrentname' => "Torrent's name",
         'torrentdesc' => "Comment",
         'torrentupload' => "Upload",
+        'invalidtorrentext' => "¡Not a .torrent file!",
 );
 
 /** Message documentation TODO

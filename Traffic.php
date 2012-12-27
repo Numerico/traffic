@@ -33,10 +33,13 @@ $wgExtensionMessagesFiles[ 'Traffic' ] = __DIR__ . '/Traffic.i18n.php';
 //includes directory
 $wgMyExtensionIncludes = dirname(__FILE__) . '/includes';
 //Torrent Upload
-$wgAutoloadClasses['SpecialTorrentUpload'] = $wgMyExtensionIncludes . '/SpecialTorrentUpload.php'; //auto-load class
+$wgAutoloadClasses['SpecialTorrentUpload'] = $wgMyExtensionIncludes . '/SpecialTorrentUpload.php'; //auto-load special page class
 $wgExtensionMessagesFiles['TrafficAlias'] = $wgMyExtensionIncludes . '/SpecialTorrentUpload.alias.php'; //page name internationalization
 $wgSpecialPages['SpecialTorrentUpload'] = 'SpecialTorrentUpload'; //Tell MediaWiki about the new special page and its class name
 $wgSpecialPageGroups['SpecialTorrentUpload'] = 'media'; //List under media category
+//& hooks
+$wgAutoloadClasses['TorrentUploadHooks'] = $wgMyExtensionIncludes . '/TorrentUploadHooks.php'; //auto-load hooks class
+$wgHooks['UploadVerifyFile'][] = 'TorrentUploadHooks::onUploadVerifyFile';
 
 /**
  * Database update
