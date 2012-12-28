@@ -15,12 +15,22 @@ if(!defined('MEDIAWIKI')){
  * Adds info to the Special:Version page
  * http://www.mediawiki.org/wiki/Manual:$wgExtensionCredits
  */
+ /*
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'TorrentUpload',
 	'author' =>'numerico', 
-	'url' => 'https://joyeria.numerica.cl', 
-	'description' => 'Torrent tracker functionality',
+	'url' => 'https://github.com/Numerico/traffic', 
+	'descriptionmsg' => 'specialtorrentupload-desc',
+	'version'  => 0.1,
+);
+*/
+$wgExtensionCredits['media'][] = array(
+	'path' => __FILE__,
+	'name' => 'TorrentUpload',
+	'author' =>'numerico', 
+	'url' => 'https://github.com/Numerico/traffic', 
+	'descriptionmsg' => 'uploadhookdesc',
 	'version'  => 0.1,
 );
 
@@ -33,14 +43,19 @@ $wgExtensionMessagesFiles[ 'Traffic' ] = __DIR__ . '/Traffic.i18n.php';
 //includes directory
 $wgMyExtensionIncludes = dirname(__FILE__) . '/includes';
 //Torrent Upload
+$wgAutoloadClasses['TorrentUploadHooks'] = $wgMyExtensionIncludes . '/TorrentUploadHooks.php'; //auto-load hooks class
+$wgHooks['UploadComplete'][] = 'TorrentUploadHooks::onUploadComplete';//save torrent hook
+/*
+TODO not sure if I'll just use regular upload...
+$wgHooks['UploadVerifyFile'][] = 'TorrentUploadHooks::onUploadVerifyFile';//file check hook
 $wgAutoloadClasses['SpecialTorrentUpload'] = $wgMyExtensionIncludes . '/SpecialTorrentUpload.php'; //auto-load special page class
 $wgExtensionMessagesFiles['TrafficAlias'] = $wgMyExtensionIncludes . '/SpecialTorrentUpload.alias.php'; //page name internationalization
 $wgSpecialPages['SpecialTorrentUpload'] = 'SpecialTorrentUpload'; //Tell MediaWiki about the new special page and its class name
 $wgSpecialPageGroups['SpecialTorrentUpload'] = 'media'; //List under media category
-//& upload hooks
-$wgAutoloadClasses['TorrentUploadHooks'] = $wgMyExtensionIncludes . '/TorrentUploadHooks.php'; //auto-load hooks class
-//$wgHooks['UploadVerifyFile'][] = 'TorrentUploadHooks::onUploadVerifyFile'; TODO not sure if I'll just use regular upload...
-$wgHooks['UploadComplete'][] = 'TorrentUploadHooks::onUploadComplete';
+*/
+//Torrent Scrape
+$wgAutoloadClasses['TorrentScrape'] = $wgMyExtensionIncludes . '/TorrentScrapeApiExtension.php';
+$wgAPIModules['scrape'] = 'TorrentScrape';
 
 /**
  * Database update

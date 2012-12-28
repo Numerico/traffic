@@ -18,6 +18,8 @@ $messages['es'] = array(//TODO codigo español
         'torrentdesc' => "Comentario",
         'torrentupload' => "Difundir",
         'invalidtorrentext' => '¡El archivo no es un .torrent!',
+        //upload hook
+        'uploadhookdesc' => 'guarda los torrents subidos para rastrearlos',
 );
 
 /** English
@@ -32,6 +34,8 @@ $messages[ 'en' ] = array(
         'torrentdesc' => "Comment",
         'torrentupload' => "Upload",
         'invalidtorrentext' => "¡Not a .torrent file!",
+        //upload hook
+        'uploadhookdesc' => 'save uploaded torrents for tracking',
 );
 
 /** Message documentation TODO
