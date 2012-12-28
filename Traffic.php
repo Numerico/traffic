@@ -37,9 +37,9 @@ $wgAutoloadClasses['SpecialTorrentUpload'] = $wgMyExtensionIncludes . '/SpecialT
 $wgExtensionMessagesFiles['TrafficAlias'] = $wgMyExtensionIncludes . '/SpecialTorrentUpload.alias.php'; //page name internationalization
 $wgSpecialPages['SpecialTorrentUpload'] = 'SpecialTorrentUpload'; //Tell MediaWiki about the new special page and its class name
 $wgSpecialPageGroups['SpecialTorrentUpload'] = 'media'; //List under media category
-//& hooks
+//& upload hooks
 $wgAutoloadClasses['TorrentUploadHooks'] = $wgMyExtensionIncludes . '/TorrentUploadHooks.php'; //auto-load hooks class
-//$wgHooks['UploadVerifyFile'][] = 'TorrentUploadHooks::onUploadVerifyFile';
+//$wgHooks['UploadVerifyFile'][] = 'TorrentUploadHooks::onUploadVerifyFile'; TODO not sure if I'll just use regular upload...
 $wgHooks['UploadComplete'][] = 'TorrentUploadHooks::onUploadComplete';
 
 /**
