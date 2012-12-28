@@ -1,13 +1,17 @@
-traffic
+==Traffic==
 =======
 
-media wiki torrent tracker extension
+'''media wiki torrent tracker extension'''
 
-to install add the following in LocalSettings.php
-require_once( "$IP/extensions/Traffic/Traffic.php" );
-$wgFileExtensions[] = 'torrent';
+to install add the following in ''LocalSettings.php''<br />
+ require_once( "$IP/extensions/Traffic/Traffic.php" );<br />
+ $wgFileExtensions[] = 'torrent';<br />
 
-besides, you'll have to add torrent mime-type in includes/mime.types
-application/x-bittorrent torrent
-and it's media type in includes/mime.info
-application/x-bittorrent [EXECUTABLE]
+and run ''maintenance/update.php'' to install new database tables<br />
+beware with the table prefix! if you use other than ''wk_'' you'll have to edit files in ''sql/'' folder by hand
+
+besides, you'll have to add torrent mime-type in ''includes/mime.types''<br />
+ application/x-bittorrent torrent
+
+and it's media type in ''includes/mime.info''<br />
+ application/x-bittorrent [EXECUTABLE]
