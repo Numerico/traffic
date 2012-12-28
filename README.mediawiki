@@ -4,8 +4,8 @@
 '''media wiki torrent tracker extension'''
 
 to install add the following in ''LocalSettings.php''<br />
- require_once( "$IP/extensions/Traffic/Traffic.php" );<br />
- $wgFileExtensions[] = 'torrent';<br />
+ require_once( "$IP/extensions/Traffic/Traffic.php" );
+ $wgFileExtensions[] = 'torrent';
 
 and run ''maintenance/update.php'' to install new database tables<br />
 beware with the table prefix! if you use other than ''wk_'' you'll have to edit files in ''sql/'' folder by hand
