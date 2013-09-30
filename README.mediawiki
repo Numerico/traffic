@@ -1,5 +1,5 @@
 ==Traffic==
-=======
+======
 
 '''media wiki torrent tracker extension'''
 
